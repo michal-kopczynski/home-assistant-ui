@@ -1,0 +1,54 @@
+.App {
+  display: flex;
+  min-height: 100vh;
+  background-color: white;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.nodes-section {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.nodes {
+  display: flex;
+}
+
+.node {
+  display: block;
+  padding: 5px;
+  margin: 10px;
+  text-align: left;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(247, 247, 247);
+  color: #333;
+}
+
+.node span {
+  font-size: 20px;
+  
+}
+
+.node-data {
+  padding: 0px;
+  margin: 5px;
+}
+
+.sensor-data {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  padding: 10px;
+  margin: 6px 0px;
+  border: 1px solid #bbb;
+  background-color: #eee;
+}
+
+.sensor-data span {
+  font-size: 1.2em;
+  color: #333;
+}
