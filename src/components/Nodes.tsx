@@ -16,9 +16,14 @@ export default function Nodes() {
     if (message) {
       console.log(message.topic)
       // TODO: add topic validation
-      
-      setNodes({...nodes, [message.topic.split('/')[2]]: JSON.parse(message.message)})
-      console.log(nodes)
+      if (message.topic.split('/')[3] == 'data'){
+        console.log('data')
+        console.log(message.message)
+        setNodes({...nodes, [message.topic.split('/')[2]]: JSON.parse(message.message)})
+      } else {
+        console.log(message.message)
+      }
+
     } 
   }, [message]);
 

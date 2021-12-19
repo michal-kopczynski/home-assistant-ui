@@ -12,9 +12,9 @@ const Node = ({nodeData}: {nodeData: NodeData | undefined}) => {
       <ul  className="node-data">
         <SensorParameter name='Temperature' value={nodeData && nodeData.sensors.temperature} unit='°C'/>
         <SensorParameter name='Humidity' value={nodeData && nodeData.sensors.humidity} unit='%'/>
-        <SensorParameter name='PM 1.0' value={nodeData && nodeData.sensors.airQuality && nodeData.sensors.airQuality.pms1_0} unit=' mg/m3'/>
-        <SensorParameter name='PM 2.5' value={nodeData && nodeData.sensors.airQuality && nodeData.sensors.airQuality.pms2_5} unit=' mg/m3'/>
-        <SensorParameter name='PM 10' value={nodeData && nodeData.sensors.airQuality && nodeData.sensors.airQuality.pms10} unit=' mg/m3'/>
+        <SensorParameter name='PM 1.0' value={nodeData && nodeData.sensors && nodeData.sensors.pms1_0} unit=' mg/m3'/>
+        <SensorParameter name='PM 2.5' value={nodeData && nodeData.sensors && nodeData.sensors.pms2_5} unit=' mg/m3'/>
+        <SensorParameter name='PM 10' value={nodeData && nodeData.sensors && nodeData.sensors.pms10} unit=' mg/m3'/>
       </ul>
     </div>
   )
