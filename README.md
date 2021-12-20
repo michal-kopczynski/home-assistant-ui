@@ -1,1 +1,1 @@
-# home-ui
+# home-assistant-ui
