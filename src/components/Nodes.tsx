@@ -13,14 +13,14 @@ function parseTopic(topic: string) : TopicType {
   const parts = topic.split('/')
   console.log({parts})
   return {
-    prefix: parts[1],
-    location: parts[2],
-    payload: parts[3],
+    prefix: parts[0],
+    location: parts[1],
+    payload: parts[2],
   }
 }
 
 export default function Nodes() {
-  const { message, connectionStatus } = useSubscription('/nodes/#');
+  const { message, connectionStatus } = useSubscription('nodes/#');
   const [nodes, setNodes] = useState < NodesType > ({});
 
   useEffect(() => {
@@ -28,14 +28,15 @@ export default function Nodes() {
       console.log(message.topic)
       const topic = parseTopic(message.topic)
       if (topic.payload === 'data'){
-        console.log('data')
+        console.log('dat:')
         console.log(message.message)
-        setNodes({...nodes, [topic.location]: JSON.parse(message.message)})
+        setNodes({...nodes, [topic.location]: (typeof message.message === 'string' ? JSON.parse(message.message) : message.message)})
       } else if (topic.payload === 'status') {
+        console.log('status:')
         console.log(message.message)
-        setNodes({...nodes, [topic.location]: JSON.parse(message.message)})
+        setNodes({...nodes, [topic.location]: (typeof message.message === 'string' ? JSON.parse(message.message) : message.message)})
       }
-    } 
+    }
   }, [message]);
 
   return (
